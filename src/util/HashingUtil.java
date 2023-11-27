@@ -4,6 +4,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashingUtil {
+	
+	// Método para aplicar o algoritmo SHA-1 e retornar o hash (hexadecimal)
     public static String hashSha128(String password) {
         try {
             MessageDigest algorithm = MessageDigest.getInstance("SHA-1");

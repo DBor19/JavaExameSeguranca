@@ -7,11 +7,12 @@ import java.sql.PreparedStatement;
 
 public class MedicoDao {
     private final Connection con;
-
+    
     public MedicoDao(Connection con) {
         this.con = con;
     }
-
+    
+    // Adicionar um médico ao banco de dados
     public void adiciona(Medico medico) {
         String sql = "insert into medicos (nome, cpf, especialidade) values (?,?,?)";
         try {
@@ -26,7 +27,8 @@ public class MedicoDao {
             throw new RuntimeException(e);
         }
     }
-
+    
+ 	// Remover um médico do banco de dados
     public void remove(Medico medico) {
         String sql = "delete from medicos where id = ?";
         try {
@@ -39,7 +41,8 @@ public class MedicoDao {
             throw new RuntimeException(e);
         }
     }
-
+    
+    // Alterar informações de um médico no banco de dados
     public void altera(Medico medico, Integer id) {
         String sql = "update medicos set nome = ?, cpf = ?, especialidade = ? where id = ?";
         try {

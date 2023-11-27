@@ -15,7 +15,8 @@ public class LipaseDao {
     public LipaseDao() {
         this.con = ConnectionFactory.getConnection();
     }
-
+    
+    // Adicionar exame
     public void adiciona(Lipase lipase) {
         String sql = "insert into Lipase (id, uL) values (?,?)";
         try {
@@ -29,7 +30,8 @@ public class LipaseDao {
             throw new RuntimeException(e);
         }
     }
-
+    
+    // Remover exame
     public void remove(Integer id) {
         String sql = "delete from Lipase where id = ?";
         try {
@@ -42,7 +44,8 @@ public class LipaseDao {
             throw new RuntimeException(e);
         }
     }
-
+    
+    // Alterar dados do Exame
     public void altera(Lipase lipase, Integer id) {
         String sql = "update Lipase set uL = ? where id = ?";
         try {
@@ -56,7 +59,8 @@ public class LipaseDao {
             throw new RuntimeException(e);
         }
     }
-
+    
+    // Listar exames
     public List<Lipase> lista() {
         String sql = "select * from Lipase";
         try {
@@ -77,7 +81,8 @@ public class LipaseDao {
             throw new RuntimeException(e);
         }
     }
-
+    
+    // Buscar o exame pelo ID
     public Lipase buscaPorId(Integer id) {
         String sql = "select * from Lipase where id = ?";
         try {

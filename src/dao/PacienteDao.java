@@ -15,7 +15,8 @@ public class PacienteDao {
     public PacienteDao() {
         this.con = ConnectionFactory.getConnection();
     }
-
+    
+    // Adicionar Paciente ao BD
     public void adiciona(Paciente paciente) {
         String sql = "insert into pacientes (nome, cpf, login, senha_hash) values (?,?,?,?)";
         try {
@@ -31,7 +32,8 @@ public class PacienteDao {
             throw new RuntimeException(e);
         }
     }
-
+    
+    // Remover Paciente do BD
     public void remove(Paciente paciente) {
         String sql = "delete from pacientes where id = ?";
         try {
@@ -44,7 +46,8 @@ public class PacienteDao {
             throw new RuntimeException(e);
         }
     }
-
+    
+    // Alterar informações do Paciente do BD
     public void altera(Paciente paciente, Integer id) {
         String sql = "update pacientes set nome = ?, cpf = ? where id = ?";
         try {
@@ -60,6 +63,7 @@ public class PacienteDao {
         }
     }
 
+    // Obter informações do Paciente pelo ID
     public Paciente getPacienteById(Integer id) {
         String sql = "select * from pacientes where id = ?";
         try {
@@ -80,6 +84,7 @@ public class PacienteDao {
         }
     }
 
+    // Listar todos os Pacientes do BD
     public List<Paciente> getPacientes() {
         String sql = "select * from pacientes";
         try {
@@ -101,6 +106,8 @@ public class PacienteDao {
         }
     }
 
+    
+    // Buscar um paciente pelo ID
     public Paciente buscaPorLogin(String login) {
         String sql = "select * from pacientes where login = ?";
         try {

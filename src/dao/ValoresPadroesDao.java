@@ -17,6 +17,7 @@ public class ValoresPadroesDao {
         this.con = ConnectionFactory.getConnection();
     }
 
+    // Listar os Valores Padrões do BD
     public List<ValoresPadroes> listar() throws Exception {
         String sql = "SELECT * FROM valorespadroes";
         PreparedStatement stmt = this.con.prepareStatement(sql);

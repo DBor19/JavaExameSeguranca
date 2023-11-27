@@ -15,6 +15,7 @@ public class SenhaDao {
         this.con = ConnectionFactory.getConnection();
     }
 
+    // Cadastrar uma senha no BD
     public void cadastrar(Senha senha) {
         String sql = "insert into senhas (id, chave_secreta) values (?,?)";
         try {
@@ -29,6 +30,7 @@ public class SenhaDao {
         }
     }
 
+    // Método para obter a senha no BD
     public Senha getSenha() {
         String sql = "select * from senhas";
         try {
